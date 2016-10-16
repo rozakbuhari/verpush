@@ -1,0 +1,21 @@
+{
+    "name": "rozakbuhari/verpush",
+    "description": "Verpush - simple library application",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fathurozak Buhari",
+            "email": "rozakbuhari@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload":
+    {
+        "psr-4":
+        {
+            "App\\" : "app/"
+        }
+    }
+}

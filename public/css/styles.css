@@ -1,0 +1,28 @@
+main, footer {
+	padding-left: 300px;
+}
+
+.left-nav {
+	top: 64px;
+}
+
+.navbar-fixed {
+	z-index: 1000;
+}
+
+.brand-logo {
+	font-weight: 300;
+}
+
+.brand-logo strong {
+	font-weight: 900;
+}
+
+@media only screen and (max-width : 992px) {
+	main, footer {
+		padding-left: 0;
+	}
+	.left-nav {
+		top: 56px;
+	}
+}
