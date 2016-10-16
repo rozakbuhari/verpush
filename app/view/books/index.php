@@ -1,4 +1,3 @@
-<a href="<?php echo URL . "books/create/" ?>">Create</a>
 <table>
 <tr>
 	<th>ISBN</th>
@@ -17,11 +16,16 @@ foreach ($books as $book) {
 		echo "<td>". $book->year ."</td>";
 		echo "<td>". $book->publisher ."</td>";
 		echo "<td>";
-			echo "<a href='" . URL . "books/edit/". $book->isbn . "'>Edit</a> ";
-			echo "<a href='" . URL . "books/delete/". $book->isbn . "'>Delete</a>";
+			echo "<a href='" . URL . "books/edit/". $book->id . "'>Edit</a> ";
+			echo "<a href='" . URL . "books/delete/". $book->id . "'>Delete</a>";
 		echo "</td>";
 	echo "</tr>";
 }
 ?>
-
 </table>
+
+<div class="fixed-action-btn" style="bottom: 50px; right: 48px;">
+	<a class="btn-floating btn-large red hoverable" href="<?php echo URL . "books/create/" ?>">
+		<i class="large material-icons">add</i>
+	</a>
+</div>

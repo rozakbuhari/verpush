@@ -7,36 +7,25 @@ use App\Core\Model;
 class Book extends Model {
 
 	public function all() {
+		$sql = "SELECT * FROM book";
+		$query = $this->db->prepare($sql);
+		$query->execute();
 
-    	$sql = "SELECT isbn, title, author, publisher, year FROM book";
-    	$query = $this->db->prepare($sql);
-    	$query->execute();
-
-       // fetchAll() is the PDO method that gets all result rows, here in object-style because we defined this in
-       // core/controller.php! If you prefer to get an associative array as the result, then do
-       // $query->fetchAll(PDO::FETCH_ASSOC); or change core/controller.php's PDO options to
-       // $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC ...
-       return $query->fetchAll();
-
+		return $query->fetchAll();
 	}
 
-  public function get($isbn) {
-      $sql = "SELECT isbn, title, author, publisher, year FROM book WHERE isbn = :isbn LIMIT 1";
+    public function get($id) {
+      $sql = "SELECT * FROM book WHERE id = :id LIMIT 1";
       $query = $this->db->prepare($sql);
-      $parameters = [':isbn' => $isbn];
-
-      // useful for debugging: you can see the SQL behind above construction by using:
-      // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
-
+      $parameters = [':id' => $id];
       $query->execute($parameters);
 
       // fetch() is the PDO method that get exactly one result
       return $query->fetch();
-  }
+    }
 
 	public function add($args) {
-      $sql = "INSERT INTO book (isbn, title, author, publisher, year)
-      			VALUES (:isbn, :title, :author, :publisher, :year)";
+      $sql = "INSERT INTO book (isbn, title, author, publisher, year) VALUES (:isbn, :title, :author, :publisher, :year)";
       $query = $this->db->prepare($sql);
       $parameters = [':isbn' => $args['isbn'],
       				':title' => $args['title'],
@@ -45,12 +34,12 @@ class Book extends Model {
       				':year' => $args['year']
       			];
       return $query->execute($parameters);
-  }
+    }
 
 	public function update($params) {
 	   $sql = "UPDATE book
-		 				 SET title = :title, author = :author, publisher = :publisher, year = :year
-						 WHERE isbn = :isbn";
+		 	   SET title = :title, author = :author, publisher = :publisher, year = :year
+			   WHERE isbn = :isbn";
 	   $query = $this->db->prepare($sql);
 	   $parameters = array(
 			 ':title' => $params['title'],
@@ -65,17 +54,17 @@ class Book extends Model {
 		 return $query->rowCount();
 	}
 
-	public function delete($isbn) {
-	    $sql = "DELETE FROM book WHERE isbn = :isbn";
+	public function delete($id) {
+	    $sql = "DELETE FROM book WHERE isbn = :id";
 	    $query = $this->db->prepare($sql);
-	    $parameters = array(':isbn' => $isbn);
+	    $parameters = array(':id' => $isbn);
 
 	    // useful for debugging: you can see the SQL behind above construction by using:
 	    // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
 
 	    $query->execute($parameters);
 
-			return $query->rowCount();
+		return $query->rowCount();
 	}
 
  //    /**

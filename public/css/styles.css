@@ -1,4 +1,8 @@
-main, footer {
+main {
+	padding-top: 48px;
+}
+
+main, footer, .main-title {
 	padding-left: 300px;
 }
 

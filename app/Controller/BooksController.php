@@ -48,12 +48,12 @@ class BooksController {
 	 * Method ini meng-handle apa yang terjadi jika kamu membuka http://{base_url}/books/edit/{isbn}
 	 * @param string $isbn
 	 */
-	public function edit($isbn) {
-		if (isset($isbn)) {
+	public function edit($id) {
+		if (isset($id)) {
 			// Instance new Model (Book)
 			$Book = new Book();
 			// do getSong() in model/model.php
-			$book = $Book->get($isbn);
+			$book = $Book->get($id);
 
 			// in a real application we would also check if this db entry exists and therefore show the result or
 			// redirect the user to an error page or similar
@@ -86,11 +86,11 @@ class BooksController {
 
 	}
 
-	public function delete($isbn = NULL) {
+	public function delete($id = NULL) {
 
-		if ($isbn) {
+		if ($id) {
 			$Book = new Book();
-			$isDeleted = $Book->delete($isbn);
+			$isDeleted = $Book->delete($id);
 			if ($isDeleted) {
 				header('location: ' . URL . 'books');
 			}
