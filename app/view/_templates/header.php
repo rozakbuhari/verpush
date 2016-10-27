@@ -2,12 +2,12 @@
 <html>
     <head>
         <!-- Material icons font -->
-         <link href="<?php echo URL; ?>css/material-icons.css" rel="stylesheet">
+         <link href="<?= URL; ?>css/material-icons.css" rel="stylesheet">
         <!-- Materialize style-sheet -->
-         <link href="<?php echo URL; ?>css/materialize.min.css" rel="stylesheet">
+         <link href="<?= URL; ?>css/materialize.min.css" rel="stylesheet">
         <!-- Styles -->
-         <link href="<?php echo URL; ?>css/styles.css" rel="stylesheet">
-
+         <link href="<?= URL; ?>css/styles.css" rel="stylesheet">
+	    <title><?= isset($title) ? $title : "Aplikasi Perpustakaan Mini" ?> - Verpush</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 <body>
@@ -62,4 +62,9 @@
     <li><div class="divider"></div></li>
     <li><a href="#!" class="waves-effect"><i class="material-icons">help</i>Tentang</a></li>
   </ul>
+  <div class="row amber accent-3 main-title white-text">
+	  <div class="col s12">
+			<h5><i class="material-icons">dashboard</i> <?= isset($title) ? $title : "Verpush" ?></h5>
+	  </div>
+  </div>
   <main class="container">

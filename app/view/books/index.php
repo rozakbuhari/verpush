@@ -1,4 +1,4 @@
-<table class="striped responsive-table">
+<table class="centered responsive-table highlight">
 <thead>
 	<tr>
 		<th>ISBN</th>
@@ -13,16 +13,23 @@
 <?php
 foreach ($books as $book) {
 	echo "<tr>";
-		echo "<td>". $book->isbn ."</td>";
-		echo "<td>". $book->title ."</td>";
-		echo "<td>". $book->author ."</td>";
-		echo "<td>". $book->year ."</td>";
-		echo "<td>". $book->publisher ."</td>";
-		echo "<td>";
-			echo "<a href='" . URL . "books/edit/". $book->id . "' class='btn btn-floating'>";
-			echo "<i class='material-icons'>edit</i></a> ";
-			echo "<a href='" . URL . "books/delete/". $book->id . "' class='btn btn-floating'>";
-			echo "<i class='material-icons'>delete</i></a> ";
+	echo "<td>". $book->isbn ."</td>";
+	echo "<td>". $book->title ."</td>";
+	echo "<td>". $book->author ."</td>";
+	echo "<td>". $book->year ."</td>";
+	echo "<td>". $book->publisher ."</td>";
+	echo "<td>";
+	echo "<div class='row'>";
+	echo "<div class='col s5'>";
+	echo "<a href='" . URL . "books/edit/". $book->id . "' class='btn btn-floating'>";
+	echo "<i class='material-icons'>edit</i></a> ";
+	echo "</div>";
+	echo "<div class='col s5'>";
+	echo "<a href='" . URL . "books/delete/". $book->id . "' class='btn btn-floating'>";
+	echo "<i class='material-icons'>delete</i></a>";
+	echo "</div>";
+
+	echo "</div>";
 	echo "</td>";
 	echo "</tr>";
 }

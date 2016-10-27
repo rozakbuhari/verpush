@@ -11,6 +11,8 @@ class BooksController {
 		$Book = new Book();
 		$books = $Book->all();
 
+		$title = "Daftar Buku";
+
 		require APP . "view/_templates/header.php";
 		require APP . "view/books/index.php";
 		require APP . "view/_templates/footer.php";
@@ -18,6 +20,8 @@ class BooksController {
 	}
 
 	public function create() {
+
+		$title = "Tambah Buku Baru";
 
 		require APP . "view/_templates/header.php";
 		require APP . "view/books/create.php";
@@ -55,6 +59,8 @@ class BooksController {
 			// do getSong() in model/model.php
 			$book = $Book->get($id);
 
+
+			$title = "Edit Buku";
 			// in a real application we would also check if this db entry exists and therefore show the result or
 			// redirect the user to an error page or similar
 
