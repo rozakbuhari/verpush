@@ -5,6 +5,12 @@
 	<input type="text" name="author" placeholder="Penulis" value="<?php echo $book->author ?>">
 	<input type="text" name="publisher" placeholder="Penerbit" value="<?php echo $book->publisher ?>">
 	<input type="number" name="year" placeholder="Tahun" value="<?php echo $book->year ?>">
-	<input type="submit">
-	<a href="<?php echo URL . "books" ?>">Cancel</a>
+	<div class="row">
+		<div class="input-field col s6">
+			<button class="btn waves-effect waves-light blue-grey" type="submit" name="action">Perbaharuild</button>
+		</div>
+		<div class="input-field col s6">
+			<a href="<?php echo URL . "books" ?>" class="btn waves-effect waves-light grey lighten-2 grey-text right" >Cancel</a>
+		</div>
+	</div>
 </form>

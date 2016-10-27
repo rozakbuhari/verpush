@@ -30,13 +30,11 @@
             </div>
           </div>
     			<ul id="nav-mobile" class="right">
-    				<li><a href="#"><i class="material-icons">add</i></a></li>
-    				<li><a href="#"><i class="material-icons">refresh</i></a></li>
-            <li>
-              <a class="dropdown-button" href="#!" data-activates="top-dropdown" data-beloworigin="true" data-constrainwidth="false">
-                <i class="material-icons">more_vert</i>
-              </a>
-            </li>
+		            <li>
+		              <a class="dropdown-button" href="#!" data-activates="top-dropdown" data-beloworigin="true" data-constrainwidth="false">
+		                <i class="material-icons">more_vert</i>
+		              </a>
+		            </li>
     			</ul>
     		</div>
     	</nav>

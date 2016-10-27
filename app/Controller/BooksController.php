@@ -90,6 +90,8 @@ class BooksController {
 
 		if ($id) {
 			$Book = new Book();
+
+
 			$isDeleted = $Book->delete($id);
 			if ($isDeleted) {
 				header('location: ' . URL . 'books');
