@@ -20,7 +20,6 @@ class Book extends Model {
       $parameters = [':id' => $id];
       $query->execute($parameters);
 
-      // fetch() is the PDO method that get exactly one result
       return $query->fetch();
     }
 
@@ -58,9 +57,6 @@ class Book extends Model {
 	    $sql = "DELETE FROM book WHERE id = :id";
 	    $query = $this->db->prepare($sql);
 	    $parameters = array(':id' => $id);
-
-	    // useful for debugging: you can see the SQL behind above construction by using:
-	    // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
 
 	    $query->execute($parameters);
 
