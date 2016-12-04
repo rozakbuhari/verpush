@@ -8,6 +8,8 @@ class MembersController {
 
 	public function index() {
 
+		$title = "Daftar Member";
+
 		$Member = new Member();
 		$members = $Member->all();
 
@@ -18,6 +20,8 @@ class MembersController {
 	}
 
 	public function create() {
+
+		$title = "Tambah Member Baru";
 
 		require APP . "view/_templates/header.php";
 		require APP . "view/members/create.php";
@@ -38,6 +42,8 @@ class MembersController {
 	}
 
 	public function edit($id) {
+
+		$title = "Perbarui Data Member";
 
 		$Member = new Member();
 		$member = $Member->get($id);

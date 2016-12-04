@@ -16,6 +16,6 @@ define('URL', URL_PROTOCOL . URL_DOMAIN . URL_SUB_FOLDER);
 define('DB_TYPE', 'mysql');
 define('DB_HOST', '127.0.0.1');
 define('DB_NAME', 'bsi_verpush');
-define('DB_USER', 'root');
-define('DB_PASS', 'root');
+define('DB_USER', 'rain');
+define('DB_PASS', '123');
 define('DB_CHARSET', 'utf8');

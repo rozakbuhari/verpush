@@ -48,9 +48,7 @@ class Book extends Model {
 			 ':isbn' => $params['isbn']
 		 );
 
-	   $query->execute($parameters);
-
-		 return $query->rowCount();
+	   return $query->execute($parameters);
 	}
 
 	public function delete($id) {

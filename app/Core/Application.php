@@ -11,9 +11,15 @@ class Application
 
     public function __construct()
     {
-        $this->splitUrl();
 
-        if (!$this->url_controller) {
+	    $this->splitUrl();
+
+	    // Tambah pengecualian auth middleware untuk controller auth
+	    if ($this->url_controller !== 'auth') {
+		    $middleware = new Middleware();
+	    }
+
+	    if (!$this->url_controller) {
 
             $page = new \App\Controller\HomeController();
             $page->index();

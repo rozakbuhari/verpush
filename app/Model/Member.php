@@ -50,9 +50,7 @@ class Member extends Model {
 			':address' => $params['address'],
 			':contact' => $params['contact']
 		);
-		$query->execute($parameters);
-
-		return $query->rowCount();
+		return $query->execute($parameters);
 	}
 
 }

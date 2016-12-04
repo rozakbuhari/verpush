@@ -41,18 +41,16 @@
 
     </div>
     <ul id="top-dropdown" class="dropdown-content">
-      <li><a href="#!" class="waves-effect">Administrator</a></li>
       <li><a href="#!">Tentang</a></li>
       <li class="divider"></li>
-      <li><a href="#!">Keluar</a></li>
+      <li><a href="<?= URL ?>auth/logout">Keluar</a></li>
     </ul>
   </header>
   <ul id="slide-out" class="side-nav fixed left-nav">
     <li>
       <div class="userView grey lighten-3">
-        <a href="#"><img src="<?php echo URL; ?>img/rozakbuhari.jpg" alt="Photo" class="circle"></a>
-        <a href="#"><span class="name">Fathurozak</span></a>
-        <a href="#"><span class="email">rozakbuhari@gmail.com</span></a>
+        <a href="#"><span class="name"><?= $_SESSION['user']->fullname ?></span></a>
+        <a href="#"><span class="email"><?= $_SESSION['user']->email ?></span></a>
       </div>
     </li>
     <li><a href="<?php echo URL; ?>" class="waves-effect"><i class="material-icons">dashboard</i>Beranda</a></li>
