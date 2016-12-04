@@ -4,7 +4,10 @@ composer.phar
 /puphpet/
 /Vagrantfile
 <<<<<<< HEAD
+<<<<<<< HEAD
 /.vagrant
+=======
+>>>>>>> 1c3382cf028f327e9590e9e625a0ec3a20839572
 =======
 >>>>>>> 1c3382cf028f327e9590e9e625a0ec3a20839572
 # Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
