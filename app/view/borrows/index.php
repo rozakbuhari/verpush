@@ -1,9 +1,8 @@
-<a href="<?= URL ?>borrows/create">Create</a>
-
-<table>
+<?php if (count($borrows)) { ?>
+<table class="responsive-table highlight">
 	<tr>
 		<th>Member</th>
-		<th>Juduk Buku</th>
+		<th>Judul Buku</th>
 		<th>Tanggal Pinjam</th>
 		<th>Tanggal Pengembalian</th>
 	</tr>
@@ -17,5 +16,12 @@ foreach ($borrows as $borrow) {
 	echo '</tr>';
 } ?>
 </table>
+<?php } else { ?>
+	<p class="center-align">Tidak ada data pinjaman buku. <a href="<?php echo URL . "borrows/create/" ?>">klik</a> untuk menambah pinjaman baru</p>
+<?php } ?>
 
-
+<div class="fixed-action-btn" style="bottom: 50px; right: 48px;">
+	<a class="btn-floating btn-large red hoverable" href="<?php echo URL . "borrows/create" ?>">
+		<i class="large material-icons">add</i>
+	</a>
+</div>

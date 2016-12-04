@@ -10,6 +10,8 @@ class BorrowsController {
 
 	public function index() {
 
+		$title = 'Daftar Pinjaman Buku';
+
 		$Borrow = new Borrow();
 		$borrows = $Borrow->all();
 
@@ -19,6 +21,8 @@ class BorrowsController {
 	}
 
 	public function create() {
+
+		$title = 'Tambah Data Pinjaman';
 
 		$Book = new Book();
 		$Member = new Member();
@@ -32,7 +36,6 @@ class BorrowsController {
 	}
 
 	public function store() {
-
 
 		// Cek apakah ini POST request, jika buka redirect ke error
 		if (empty($_POST)) header('location: ' . URL . 'error');

@@ -6,6 +6,10 @@ main, footer, .main-title {
 	padding-left: 300px;
 }
 
+td ul {
+	margin: 0;
+}
+
 .left-nav {
 	top: 64px;
 }
@@ -20,6 +24,12 @@ main, footer, .main-title {
 
 .brand-logo strong {
 	font-weight: 900;
+}
+
+.hero-501 {
+    font-size: 140px;
+    font-weight: 900;
+    line-height: 1;
 }
 
 @media only screen and (max-width : 992px) {

@@ -60,7 +60,7 @@ class BooksController {
 			$book = $Book->get($id);
 
 
-			$title = "Edit Buku";
+			$title = "Perbarui Data Buku";
 			// in a real application we would also check if this db entry exists and therefore show the result or
 			// redirect the user to an error page or similar
 
