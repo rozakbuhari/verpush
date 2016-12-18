@@ -11,7 +11,9 @@
 
 namespace App\Controller;
 
-class HomeController
+use App\Core\Controller;
+
+class HomeController extends Controller
 {
     /**
      * PAGE: index
@@ -19,7 +21,8 @@ class HomeController
      */
     public function index()
     {
-	    $title = "Dashboard";
+    	$title = "Dashboard";
+
         // load views
         require APP . 'view/_templates/header.php';
 	    require APP . 'view/dashboard/index.php';

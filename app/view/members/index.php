@@ -15,7 +15,7 @@
 		echo "<td>". $member->address ."</td>";
 		echo "<td>". $member->contact ."</td>";
 		echo "<td>";
-		echo "<ul>";
+		echo "<ul class='nowrap'>";
 		echo "<a href='" . URL . "members/edit/". $member->id . "' class='btn btn-floating'>";
 		echo "<i class='material-icons'>edit</i></a> ";
 		echo "</ul>";

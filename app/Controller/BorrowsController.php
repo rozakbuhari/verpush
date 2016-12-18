@@ -2,11 +2,12 @@
 
 namespace App\Controller;
 
+use App\Core\Controller;
 use App\Model\Book;
 use App\Model\Member;
 use App\Model\Borrow;
 
-class BorrowsController {
+class BorrowsController extends Controller {
 
 	public function index() {
 
@@ -45,7 +46,13 @@ class BorrowsController {
 		$Borrow = new Borrow();
 		$isAdded = $Borrow->add($params);
 
-		if ($isAdded) header('location: ' . URL . 'borrows'); else
+		if ($isAdded) {
+			if ($this->Auth->isAdmin) {
+				header('location: ' . URL . 'borrows');
+			} else {
+				header('location: ' . URL);
+			}
+		} else
 			header('location: ' . URL . 'error');
 
 	}

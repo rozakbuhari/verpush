@@ -47,18 +47,22 @@
     </ul>
   </header>
   <ul id="slide-out" class="side-nav fixed left-nav">
-    <li>
-      <div class="userView grey lighten-3">
-        <a href="#"><span class="name"><?= $_SESSION['user']->fullname ?></span></a>
-        <a href="#"><span class="email"><?= $_SESSION['user']->email ?></span></a>
-      </div>
-    </li>
-    <li><a href="<?php echo URL; ?>" class="waves-effect"><i class="material-icons">dashboard</i>Beranda</a></li>
-    <li><a href="<?php echo URL; ?>books" class="waves-effect"><i class="material-icons">book</i>Buku</a></li>
-    <li><a href="<?php echo URL; ?>members" class="waves-effect"><i class="material-icons">assignment_ind</i>Member</a></li>
-    <li><a href="<?php echo URL; ?>borrows" class="waves-effect"><i class="material-icons">assignment_ind</i>Pinjaman</a></li>
-    <li><div class="divider"></div></li>
-    <li><a href="#!" class="waves-effect"><i class="material-icons">help</i>Tentang</a></li>
+      <li>
+          <div class="userView grey lighten-3">
+            <a href="#"><span class="name"><?= $_SESSION['user']->fullname ?></span></a>
+            <a href="#"><span class="email"><?= $_SESSION['user']->email ?></span></a>
+          </div>
+      </li>
+
+      <?php foreach ($this->Auth->items as $nav): ?>
+          <li>
+              <a href="<?= $nav['link']; ?>" class="waves-effect">
+                  <i class="material-icons"><?= $nav['icon'] ?></i><?= $nav['label'] ?></a>
+          </li>
+      <?php endforeach; ?>
+
+      <li><div class="divider"></div></li>
+      <li><a href="#!" class="waves-effect"><i class="material-icons">help</i>Tentang</a></li>
   </ul>
   <div class="row amber accent-3 main-title white-text">
 	  <div class="col s12">

@@ -8,7 +8,9 @@
 		<th>PENULIS</th>
 		<th>TAHUN</th>
 		<th>PENERBIT</th>
+        <?php if ($this->Auth->isAdmin): ?>
 		<th>ACTION</th>
+        <?php endif; ?>
 	</tr>
 </thead>
 	<tbody>
@@ -20,14 +22,16 @@ foreach ($books as $book) {
 	echo "<td>". $book->author ."</td>";
 	echo "<td>". $book->year ."</td>";
 	echo "<td>". $book->publisher ."</td>";
-	echo "<td>";
-	echo "<ul>";
-	echo "<a href='" . URL . "books/edit/". $book->id . "' class='btn btn-floating'>";
-	echo "<i class='material-icons'>edit</i></a> ";
-	echo "<a href='" . URL . "books/delete/". $book->id . "' class='btn btn-floating'>";
-	echo "<i class='material-icons'>delete</i></a>";
-	echo "</ul>";
-	echo "</td>";
+	if ($this->Auth->isAdmin) {
+		echo "<td>";
+		echo "<ul class='nowrap'>";
+		echo "<a href='" . URL . "books/edit/" . $book->id . "' class='btn btn-floating'>";
+		echo "<i class='material-icons'>edit</i></a> ";
+		echo "<a href='" . URL . "books/delete/" . $book->id . "' class='btn btn-floating'>";
+		echo "<i class='material-icons'>delete</i></a>";
+		echo "</ul>";
+		echo "</td>";
+	}
 	echo "</tr>";
 }
 ?>
@@ -37,8 +41,10 @@ foreach ($books as $book) {
 	<p class="center-align">Tidak ada data buku. <a href="<?php echo URL . "books/create/" ?>">klik</a> untuk menambah buku baru</p>
 <?php } ?>
 
-<div class="fixed-action-btn" style="bottom: 50px; right: 48px;">
-	<a class="btn-floating btn-large red hoverable" href="<?php echo URL . "books/create/" ?>">
-		<i class="large material-icons">add</i>
-	</a>
-</div>
+<?php if ($this->Auth->isAdmin): ?>
+    <div class="fixed-action-btn" style="bottom: 50px; right: 48px;">
+        <a class="btn-floating btn-large red hoverable" href="<?php echo URL . "books/create/" ?>">
+            <i class="large material-icons">add</i>
+        </a>
+    </div>
+<?php endif; ?>

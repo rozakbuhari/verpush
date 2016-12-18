@@ -42,13 +42,42 @@ CREATE TABLE `user` (
   `email` VARCHAR(64) NOT NULL
 ) AUTO_INCREMENT=1;
 
+DROP TABLE IF EXISTS `role`;
+
+CREATE TABLE `role` (
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name` varchar(48) NOT NULL,
+  `title` varchar(48) NOT NULL
+);
+
+CREATE TABLE `user_role` (
+  `user_id` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
+);
+
 
 # User Seeds
 INSERT INTO `user` (`username`, `password`, `fullname`, `email`)
-VALUES ('admin', 'admin', 'Administrator', 'admin@verpush.com');
+VALUES ('admin', 'admin', 'Pengelola Perpustakaan', 'admin@verpush.com');
 
 INSERT INTO `user` (`username`, `password`, `fullname`, `email`)
 VALUES ('citra', 'citra', 'Ariyana Arcitra', 'arcitra@verpush.com');
+
+# Role Seeds
+INSERT INTO `role` (`name`, `title`)
+VALUES ('admin', 'Administrator');
+
+INSERT INTO `role` (`name`, `title`)
+VALUES ('basic', 'Anggota Perpustakaan');
+
+# User Role Seeds
+INSERT INTO `user_role` (`user_id`, `role_id`)
+VALUES ('1', '1');
+
+INSERT INTO `user_role` (`user_id`, `role_id`)
+VALUES ('2', '2');
 
 
 # Book Seeds

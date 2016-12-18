@@ -1,14 +1,3 @@
-<!--	<div>-->
-	<!--		<input type="text" name="username">-->
-	<!--	</div>-->
-	<!--	<div>-->
-	<!--		<input type="text" name="password">-->
-	<!--	</div>-->
-	<!--	<div>-->
-	<!--		<input type="submit" name="submit">-->
-	<!--	</div>-->
-	<!--</form>-->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +27,14 @@
 			<div class="card-panel">
 				<h5 class="card-title center-align grey-text">Masuk ke <strong>Verpush</strong></h5>
 				<form action="<?= URL ?>auth/login" method="post">
-					<div class="row login-input">
+                    <?php
+                    /** @var boolean $error */
+                    if ($error): ?>
+                    <div class="row login-input center-align red-text">
+                        <span>Username atau Password anda salah!</span>
+                    </div>
+                    <?php endif ?>
+                    <div class="row login-input">
 						<div class="input-field col s10 offset-s1">
 							<input type="text" name="username" class="validate">
 							<label for="email">Username</label>

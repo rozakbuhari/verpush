@@ -11,7 +11,9 @@
 
 namespace App\Controller;
 
-class ErrorController
+use App\Core\Controller;
+
+class ErrorController extends Controller
 {
     /**
      * PAGE: index

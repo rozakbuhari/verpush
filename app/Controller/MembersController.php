@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Core\Controller;
 use App\Model\Member;
+use App\Model\User;
 
-class MembersController {
+class MembersController extends Controller {
 
 	public function index() {
 
@@ -37,7 +39,13 @@ class MembersController {
 		$Member = new Member();
 		$isAdded = $Member->add($params);
 
-		if ($isAdded) header('location: ' . URL . 'members');
+		if ($isAdded) {
+			$User =  new User();
+			$user = $User->add($params);
+
+			if ($user) header('location: ' . URL . 'members');
+			else header('location: ' . URL . 'error');
+		}
 		else header('location: ' . URL . 'error');
 	}
 

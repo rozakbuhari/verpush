@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
+use App\Core\Controller;
 use App\Model\Book;
 
-class BooksController {
+class BooksController extends Controller {
 
 	public function index() {
 

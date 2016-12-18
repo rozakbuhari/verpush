@@ -8,9 +8,10 @@ class AuthController
 {
     public function login()
     {
-
 	    $username = null;
 	    $password = null;
+
+	    $error = isset($_GET['error']) ? $_GET['error'] : FALSE;
 
 	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -20,6 +21,7 @@ class AuthController
 
 			    $User = new User();
 			    $user = $User->getWhere(['username' => $username, 'password' => $password]);
+			    $user->roles = $User->roles($user->id);
 
 			    if($user) {
 				    $_SESSION["authenticated"] = true;
@@ -27,11 +29,11 @@ class AuthController
 				    header('Location: ' . URL);
 			    }
 			    else {
-				    header('Location: ' . URL . 'auth/login');
+				    header('Location: ' . URL . 'auth/login?error=1');
 			    }
 
 		    } else {
-			    header('Location: ' . URL . 'auth/login');
+			    header('Location: ' . URL . 'auth/login?error=1');
 		    }
 	    } else {
 		    require APP . 'view/auth/login.php';

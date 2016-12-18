@@ -32,6 +32,10 @@ td ul {
     line-height: 1;
 }
 
+.nowrap {
+	white-space: nowrap;
+}
+
 @media only screen and (max-width : 992px) {
 	main, footer {
 		padding-left: 0;
